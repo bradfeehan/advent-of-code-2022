@@ -1,0 +1,5 @@
+---
+patterns:
+  - .github/workflows/*.yml
+  - .v8rrc.yml
+  - .yamllint.yml
