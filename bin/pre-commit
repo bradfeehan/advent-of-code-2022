@@ -152,7 +152,7 @@ lint_run 'File names' 'in_path bash' 'brew install bash' "${ROOT}/bin/filename-c
 
 lint_run 'actionlint' 'in_path actionlint' 'brew install actionlint' actionlint -color
 lint_run 'JSON Schema' 'in_path v8r' 'npm install -g v8r' bash -c 'v8r 2> /dev/null'
-lint_run 'Rubocop' 'in_path rubocop' 'gem install rubocop' rubocop --format quiet
+lint_run 'Rubocop' 'bundle check > /dev/null' 'bundle install' env BUNDLE_GEMFILE="${ROOT}/Gemfile" bin/rubocop --format quiet
 lint_run 'ShellCheck' 'in_path shellcheck' 'brew install shellcheck' bash -c "\
   { \
     find . \
