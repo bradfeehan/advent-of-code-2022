@@ -46,6 +46,21 @@ jobs:
       - run: npm install -g v8r
       - run: v8r
 
+  rubocop:
+    name: Rubocop
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    env:
+      BUNDLE_DEPLOYMENT: true
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
+      - name: Set up rubocop
+        run: >
+          gem install rubocop-rails &&
+          echo "::add-matcher::.github/matchers/rubocop.json"
+      - run: rubocop
+
   yamllint:
     name: YAMLlint
     runs-on: ubuntu-latest
